@@ -5,14 +5,15 @@
 - Instalar librerías:
   ```bash
   pip install streamlit pandas
+  ```
 
-
-# Ejecución 
+# Ejecución
 
 Ejecute el siguiente comando en la terminal para iniciar el dashboard:
 
- ```bash
-  streamlit run app.py
+```bash
+streamlit runpp.py
+```
 
 Abra su navegador web e ingrese a la siguiente dirección:
 
