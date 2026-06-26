@@ -8,22 +8,19 @@
 
 
 # Ejecución 
-Ejecute el comando:
+
+Ejecute el siguiente comando en la terminal para iniciar el dashboard:
 
 Bash
 streamlit run app.py
-Abra en el navegador: http://localhost:8501
+Abra su navegador web e ingrese a la siguiente dirección:
 
-Componentes
-Métricas: Latencia, volumen y tokens.
+http://localhost:8501
 
-Trazabilidad: Logs JSON vinculados por trace_id.
+Características del Sistema
 
-Seguridad: Bloqueo de datos sensibles (PII) e inyecciones.
+Métricas: Monitoreo en tiempo real de latencia, volumen de consultas y consumo de tokens.
 
+Trazabilidad: Logs estructurados en formato JSON vinculados mediante un identificador único (trace_id).
 
-Actualizar GitHub ejecutando esto en la terminal:
-```bash
-git add .
-git commit -m "README Final"
-git push
+Seguridad: Bloqueo automático ante intentos de inyección de código o exposición de datos sensibles (PII).
