@@ -11,8 +11,9 @@
 
 Ejecute el siguiente comando en la terminal para iniciar el dashboard:
 
-Bash
-streamlit run app.py
+ ```bash
+  streamlit run app.py
+
 Abra su navegador web e ingrese a la siguiente dirección:
 
 http://localhost:8501
