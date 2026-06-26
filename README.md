@@ -1,4 +1,3 @@
-Markdown
 # Sistema de Observabilidad - Agente de IA (Ferretería El Martillo)
 
 ## 🛠️ Requisitos
