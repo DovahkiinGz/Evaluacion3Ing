@@ -1,6 +1,3 @@
-1. El README.md
-Copia, pega esto en tu archivo README.md en VS Code y guárdalo:
-
 Markdown
 # Sistema de Observabilidad - Agente de IA (Ferretería El Martillo)
 
