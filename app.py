@@ -5,7 +5,7 @@ import random
 import logging
 import json
 
-# 1. CONFIGURACIÓN DE LOGS ESTRUCTURADOS (IE3, IE4)
+# 1. CONFIGURACIÓN DE LOGS ESTRUCTURADOS
 class JsonFormatter(logging.Formatter):
     def format(self, record):
         return json.dumps({
@@ -23,7 +23,7 @@ if not logger.handlers:
     logger.addHandler(handler)
     logger.setLevel(logging.INFO)
 
-# 2. MOTOR DEL AGENTE CON MÉTRICAS Y SEGURIDAD (IE1, IE2, IE6)
+# 2. MOTOR DEL AGENTE CON MÉTRICAS Y SEGURIDAD
 def procesar_consulta_ia(prompt, trace_id):
     start_time = time.time()
     
@@ -33,7 +33,7 @@ def procesar_consulta_ia(prompt, trace_id):
         logger.warning("Alerta de Seguridad: Intento de fuga de datos o inyección detectada.", extra={"trace_id": trace_id})
         return {"Trace_ID": trace_id, "Latencia": 0.1, "Consistencia": 0.0, "Tokens": 0, "Estado": "Bloqueado por Seguridad"}
 
-    # Simulación de procesamiento con variabilidad de datos (Escenarios reales)
+    # Simulación de procesamiento con variabilidad de datos
     time.sleep(random.uniform(0.3, 2.4)) 
     tokens_estimados = len(prompt.split()) + random.randint(100, 500)
     
@@ -57,9 +57,9 @@ def procesar_consulta_ia(prompt, trace_id):
         "Estado": estado
     }
 
-# 3. DASHBOARD VISUAL INTERACTIVO (IE5, IE8)
+# 3. DASHBOARD VISUAL INTERACTIVO
 st.set_page_config(page_title="Dashboard Observabilidad IA", layout="wide")
-st.title("📊 Panel de Observabilidad y Trazabilidad - Agente IA")
+st.title("Panel de Observabilidad y Trazabilidad - Agente IA")
 st.markdown("### Sistema de Monitoreo en Tiempo Real para Ferretería El Martillo")
 
 # Mantener el historial de ejecuciones en la sesión
@@ -78,7 +78,7 @@ if "logs_df" not in st.session_state:
 df = st.session_state.logs_df
 
 # Cuadro de pruebas en vivo
-with st.expander("🤖 Probar Agente de IA en Vivo (Evaluación de Escenarios)", expanded=True):
+with st.expander("Probar Agente de IA en Vivo (Evaluación de Escenarios)", expanded=True):
     col_txt, col_btn = st.columns([4, 1])
     with col_txt:
         prompt_input = st.text_input("Consulta del cliente:", "Cotizar 50 planchas de zinc y 3 cajas de tornillos")
@@ -93,7 +93,7 @@ with st.expander("🤖 Probar Agente de IA en Vivo (Evaluación de Escenarios)",
 
 st.markdown("---")
 
-# Métricas Principales (IE1, IE2)
+# Métricas Principales
 total_req = len(df)
 errores = len(df[df["Estado"] != "Exitoso"])
 error_rate = (errores / total_req) * 100
@@ -106,8 +106,8 @@ c2.metric("Latencia Promedio", f"{avg_lat:.2f} s")
 c3.metric("Consistencia Lógica", f"{avg_cons:.1f}%")
 c4.metric("Tasa de Error", f"{error_rate:.1f}%", delta=f"{error_rate:.1f}%", delta_color="inverse")
 
-# Gráficos de Rendimiento y Análisis de Anomalías (IE5, IE8)
-st.subheader("📈 Análisis de Patrones y Cuellos de Botella")
+# Gráficos de Rendimiento y Análisis de Anomalías
+st.subheader("Análisis de Patrones y Cuellos de Botella")
 g1, g2 = st.columns(2)
 
 with g1:
@@ -118,6 +118,6 @@ with g2:
     st.markdown("**Uso de Recursos (Consumo de Tokens por Petición)**")
     st.bar_chart(df["Tokens"])
 
-# Tabla de Trazabilidad / Registros logs (IE3, IE4)
-st.subheader("📋 Registros de Trazabilidad Recientes (Dataframe de Logs)")
+# Tabla de Trazabilidad / Registros logs
+st.subheader("Registros de Trazabilidad Recientes (Dataframe de Logs)")
 st.dataframe(df.tail(10), use_container_width=True)
